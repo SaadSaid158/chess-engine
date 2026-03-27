@@ -1,6 +1,6 @@
-# GoChess
+# Chess Engine
 
-GoChess is a compact chess engine written in Go with two front ends: a local browser UI and a UCI mode for chess GUIs. It uses a bitboard-based engine, iterative deepening alpha-beta search, and built-in perft support for engine validation.
+This chess engine is a compact chess engine written in Go with two front ends: a local browser UI and a UCI mode for chess GUIs. It uses a bitboard-based engine, iterative deepening alpha-beta search, and built-in perft support for engine validation.
 
 ## Features
 
@@ -8,9 +8,6 @@ GoChess is a compact chess engine written in Go with two front ends: a local bro
 - Bitboard board representation with incremental make/unmake
 - UCI protocol support for external GUI integration
 - Built-in web UI served by the engine over HTTP
-- Alpha-beta search with iterative deepening and aspiration windows
-- Quiescence search, null-move pruning, killer/history move ordering, and transposition tables
-- Zobrist hashing, repetition detection, FEN parsing, and perft support
 
 ## Project Layout
 
@@ -25,10 +22,10 @@ GoChess is a compact chess engine written in Go with two front ends: a local bro
 ## Build
 
 ```bash
-go build -o gochess .
+go build -o chessengine .
 ```
 
-On Windows the output binary will be `gochess.exe`.
+On Windows the output binary will be `chessengine.exe`.
 
 ## Run
 
@@ -55,8 +52,8 @@ go run . -mode uci
 Build once, then run the binary:
 
 ```bash
-./gochess -mode web
-./gochess -mode uci
+./chessengine -mode web
+./chessengine -mode uci
 ```
 
 ## UCI Usage
@@ -104,15 +101,6 @@ The UI lets you:
 - set engine depth from 1 to 20
 - view move list, evaluation, nodes, depth, and NPS
 - undo the last move pair and flip the board
-
-## Verify
-
-```bash
-go build ./...
-go test ./...
-```
-
-`go test ./...` is still useful as a package check, but the current workspace does not include any `_test.go` files.
 
 ## License
 
